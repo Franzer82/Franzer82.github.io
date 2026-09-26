@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franziska Albrecht — KI &amp; Software Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F3EA;
+    --paper-shadow: #EAE2CE;
+    --ink: #221C14;
+    --ink-muted: #6B6152;
+    --gold: #9C7A0E;
+    --stamp: #9C3B3B;
+    --line: #C9BFA8;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #DDD6C4;
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    padding: 48px 16px 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .receipt {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    background: var(--paper);
+    padding: 56px 40px 48px;
+    box-shadow: 0 18px 40px rgba(34, 28, 20, 0.18);
+  }
+
+  .receipt::before,
+  .receipt::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background:
+      linear-gradient(135deg, var(--paper) 50%, transparent 50%) 0 0 / 16px 16px repeat-x,
+      linear-gradient(-135deg, var(--paper) 50%, transparent 50%) 0 0 / 16px 16px repeat-x;
+    background-color: #DDD6C4;
+  }
+
+  .receipt::before { top: -14px; transform: rotate(180deg); }
+  .receipt::after { bottom: -14px; }
+
+  .shop-name {
+    font-family: 'Fraunces', serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin: 0 0 4px;
+    line-height: 1.15;
+  }
+
+  .tagline {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1.5px dashed var(--line);
+    margin: 26px 0;
+  }
+
+  .intro {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+
+  .line-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+
+  .line-item .label { color: var(--ink); }
+  .line-item .value { color: var(--ink-muted); white-space: nowrap; }
+
+  .project-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 18px;
+    font-family: 'Fraunces', serif;
+  }
+
+  .link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    margin-bottom: 8px;
+  }
+
+  .link-row a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.82rem;
+    border-bottom: 1px solid transparent;
+  }
+
+  .link-row a:hover,
+  .link-row a:focus-visible {
+    border-bottom-color: var(--gold);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+  }
+
+  .skill-row .dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--line);
+    margin: 0 8px;
+    transform: translateY(-4px);
+  }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 22px 0 6px;
+  }
+
+  .stamp {
+    position: absolute;
+    right: 34px;
+    top: 340px;
+    width: 118px;
+    height: 118px;
+    border: 3px solid var(--stamp);
+    border-radius: 50%;
+    color: var(--stamp);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    transform: rotate(-14deg);
+    opacity: 0.85;
+    line-height: 1.3;
+    pointer-events: none;
+  }
+
+  .contact {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    margin-top: 30px;
+  }
+
+  .contact a { color: var(--gold); text-decoration: none; }
+
+  .footer-note {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    margin-top: 26px;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 480px) {
+    .receipt { padding: 44px 22px 36px; }
+    .stamp { width: 92px; height: 92px; font-size: 0.62rem; right: 18px; top: 300px; }
+    .shop-name { font-size: 1.7rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<main class="receipt">
+  <div class="stamp">GEPRÜFT<br>✓ OK</div>
+
+  <h1 class="shop-name">Franziska Albrecht</h1>
+  <p class="tagline">KI- &amp; SOFTWARE-ENTWICKLUNG</p>
+
+  <hr class="divider">
+
+  <p class="intro">
+    Ich baue KI-Systeme, die reale Aufgaben lösen — von Bilderkennung über
+    sprachbasierte Assistenten bis zur Überwachung im laufenden Betrieb.
+    Am liebsten dort, wo mehrere Disziplinen zusammenkommen müssen, damit
+    am Ende etwas Brauchbares entsteht, kein Prototyp für die Schublade.
+  </p>
+
+  <hr class="divider">
+
+  <p class="section-label">AUSGEWÄHLTES PROJEKT</p>
+
+  <p class="project-name">InsightScan</p>
+  <p class="project-desc">
+    Liest Kassenbelege automatisch aus (Computer Vision), prüft sie gegen
+    eine Firmenrichtlinie (RAG-Suche + Sprachmodell) und überwacht die
+    eigene Erkennungsqualität im Betrieb (MLOps). Vollständig kostenlos
+    gehostet und öffentlich nutzbar.
+  </p>
+  <div class="link-row">
+    <a href="https://franzer82-insightscan.streamlit.app/" target="_blank" rel="noopener">Live-Demo öffnen</a>
+    <a href="https://github.com/Franzer82/insightscan" target="_blank" rel="noopener">Quellcode (GitHub)</a>
+    <a href="https://huggingface.co/Franzer82/insightscan-layoutlm" target="_blank" rel="noopener">Modell (Hugging Face)</a>
+    <a href="docs/InsightScan_Portfolio_Dokumentation.pdf" target="_blank" rel="noopener">Dokumentation (PDF)</a>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">EINGESETZTE FÄHIGKEITEN</p>
+  <div class="skills-list">
+    <div class="skill-row"><span>Computer Vision — LayoutLM Fine-Tuning</span><span class="dots"></span><span>91% F1</span></div>
+    <div class="skill-row"><span>Retrieval-Augmented Generation</span><span class="dots"></span><span>sentence-transformers</span></div>
+    <div class="skill-row"><span>MLOps — Monitoring &amp; Drift-Erkennung</span><span class="dots"></span><span>eigenes Dashboard</span></div>
+    <div class="skill-row"><span>Hybrid-Architektur (Regeln + LLM)</span><span class="dots"></span><span>Python, Gemini</span></div>
+    <div class="skill-row"><span>Deployment &amp; Cloud-Hosting</span><span class="dots"></span><span>Streamlit, HF Hub</span></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="total-row">
+    <span>Danke fürs Vorbeischauen</span>
+    <span>✓</span>
+  </div>
+
+  <p class="contact">
+    <a href="mailto:Franziska.Sophie.Albrecht@proton.me">Franziska.Sophie.Albrecht@proton.me</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/Franzer82" target="_blank" rel="noopener">github.com/Franzer82</a>
+  </p>
+
+  <p class="footer-note">BELEG Nr. 001 — GÜLTIG AB SOFORT</p>
+</main>
+
+</body>
+</html>
