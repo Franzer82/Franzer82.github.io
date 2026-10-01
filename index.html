@@ -6,219 +6,185 @@
 <title>Franziska Albrecht — KI &amp; Software Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F7F3EA;
-    --paper-shadow: #EAE2CE;
-    --ink: #221C14;
-    --ink-muted: #6B6152;
-    --gold: #9C7A0E;
-    --stamp: #9C3B3B;
-    --line: #C9BFA8;
+    --bg: #0E1F2E;
+    --text: #CFE8FF;
+    --text-dim: #6F93AC;
+    --text-mid: #9FC3DE;
+    --text-bright: #EAF6FF;
+    --accent: #5FD4D0;
+    --line: #1C3650;
+    --stage-border: #2A4E5C;
   }
 
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
-    margin: 0;
-    padding: 0;
-    background: #DDD6C4;
-    color: var(--ink);
-    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
   }
 
   body {
-    padding: 48px 16px 80px;
+    padding: 56px 20px 80px;
     display: flex;
     justify-content: center;
   }
 
-  .receipt {
-    position: relative;
+  main {
     width: 100%;
-    max-width: 620px;
-    background: var(--paper);
-    padding: 56px 40px 48px;
-    box-shadow: 0 18px 40px rgba(34, 28, 20, 0.18);
+    max-width: 640px;
   }
 
-  .receipt::before,
-  .receipt::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 14px;
-    background:
-      linear-gradient(135deg, var(--paper) 50%, transparent 50%) 0 0 / 16px 16px repeat-x,
-      linear-gradient(-135deg, var(--paper) 50%, transparent 50%) 0 0 / 16px 16px repeat-x;
-    background-color: #DDD6C4;
-  }
-
-  .receipt::before { top: -14px; transform: rotate(180deg); }
-  .receipt::after { bottom: -14px; }
-
-  .shop-name {
-    font-family: 'Fraunces', serif;
-    font-size: 2.1rem;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 0.01em;
-    margin: 0 0 4px;
-    line-height: 1.15;
+  .name {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-bright);
   }
 
   .tagline {
-    text-align: center;
-    font-size: 0.78rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.06em;
-    margin-bottom: 28px;
-  }
-
-  .divider {
-    border: none;
-    border-top: 1.5px dashed var(--line);
-    margin: 26px 0;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 6px;
   }
 
   .intro {
-    font-family: 'Fraunces', serif;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--ink);
-    margin: 0;
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-top: 28px;
+    max-width: 520px;
   }
 
   .section-label {
-    font-size: 0.72rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.08em;
-    margin-bottom: 14px;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    margin: 48px 0 0;
   }
 
-  .line-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    font-size: 0.88rem;
+  .pipeline {
+    border-left: 1px solid var(--line);
+    margin: 24px 0 0 8px;
+    padding-left: 24px;
+  }
+
+  .item {
+    padding-bottom: 36px;
+    position: relative;
+  }
+
+  .item:last-child {
+    padding-bottom: 0;
+  }
+
+  .item::before {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .stage {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--accent);
+    border: 1px solid var(--stage-border);
+    padding: 2px 8px;
     margin-bottom: 10px;
   }
 
-  .line-item .label { color: var(--ink); }
-  .line-item .value { color: var(--ink-muted); white-space: nowrap; }
-
-  .project-name {
-    font-family: 'Fraunces', serif;
-    font-size: 1.35rem;
+  .proj-name {
+    font-size: 17px;
     font-weight: 600;
-    margin: 0 0 8px;
+    color: var(--text-bright);
   }
 
-  .project-desc {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--ink);
-    margin: 0 0 18px;
-    font-family: 'Fraunces', serif;
+  .proj-desc {
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-top: 8px;
+    line-height: 1.65;
+    max-width: 480px;
   }
 
-  .project-desc strong {
-    font-weight: 700;
+  .proj-desc b {
+    color: var(--text);
+    font-weight: 600;
   }
 
-  .link-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 18px;
-    margin-bottom: 8px;
+  .links {
+    margin-top: 12px;
+    font-size: 12px;
   }
 
-  .link-row a {
-    color: var(--gold);
+  .links a {
+    color: var(--accent);
     text-decoration: none;
-    font-size: 0.82rem;
+    margin-right: 18px;
     border-bottom: 1px solid transparent;
   }
 
-  .link-row a:hover,
-  .link-row a:focus-visible {
-    border-bottom-color: var(--gold);
+  .links a:hover,
+  .links a:focus-visible {
+    border-bottom-color: var(--accent);
   }
 
-  .skills-list {
+  .skills {
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 10px;
   }
 
   .skill-row {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
+    font-size: 12px;
+    gap: 16px;
   }
 
-  .skill-row .dots {
-    flex: 1;
-    border-bottom: 1px dotted var(--line);
-    margin: 0 8px;
-    transform: translateY(-4px);
+  .skill-row .label {
+    color: var(--text);
   }
 
-  .total-row {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin: 22px 0 6px;
+  .skill-row .value {
+    color: var(--text-dim);
+    text-align: right;
+    white-space: nowrap;
   }
 
-  .stamp {
-    position: absolute;
-    right: 34px;
-    top: 340px;
-    width: 118px;
-    height: 118px;
-    border: 3px solid var(--stamp);
-    border-radius: 50%;
-    color: var(--stamp);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    transform: rotate(-14deg);
-    opacity: 0.85;
-    line-height: 1.3;
-    pointer-events: none;
+  .divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 48px 0;
   }
 
   .contact {
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--ink-muted);
-    margin-top: 30px;
+    font-size: 13px;
+    color: var(--text-dim);
   }
 
-  .contact a { color: var(--gold); text-decoration: none; }
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+  }
 
   .footer-note {
-    text-align: center;
-    font-size: 0.72rem;
-    color: var(--ink-muted);
-    margin-top: 26px;
-    letter-spacing: 0.04em;
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 32px;
   }
 
   @media (max-width: 480px) {
-    .receipt { padding: 44px 22px 36px; }
-    .stamp { width: 92px; height: 92px; font-size: 0.62rem; right: 18px; top: 300px; }
-    .shop-name { font-size: 1.7rem; }
+    .name { font-size: 20px; }
+    .proj-desc { max-width: 100%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -228,13 +194,9 @@
 </head>
 <body>
 
-<main class="receipt">
-  <div class="stamp">GEPRÜFT<br>✓ OK</div>
-
-  <h1 class="shop-name">Franziska Albrecht</h1>
-  <p class="tagline">KI- &amp; SOFTWARE-ENTWICKLUNG</p>
-
-  <hr class="divider">
+<main>
+  <div class="name">Franziska Albrecht</div>
+  <div class="tagline">ML &amp; Software Engineering</div>
 
   <p class="intro">
     Ich baue KI-Systeme, die reale Aufgaben lösen — von Bilderkennung über
@@ -243,76 +205,75 @@
     am Ende etwas Brauchbares entsteht, kein Prototyp für die Schublade.
   </p>
 
-  <hr class="divider">
-
   <p class="section-label">AUSGEWÄHLTE PROJEKTE</p>
 
-  <p class="project-name">InsightScan</p>
-  <p class="project-desc">
-    Liest Kassenbelege automatisch aus (<strong>Computer Vision</strong>),
-    prüft sie gegen eine Firmenrichtlinie
-    (<strong>RAG-Suche + Sprachmodell</strong>) und überwacht die eigene
-    Erkennungsqualität im Betrieb (<strong>MLOps</strong>). Vollständig
-    kostenlos gehostet und öffentlich nutzbar.
-  </p>
-  <div class="link-row">
-    <a href="https://franzer82-insightscan.streamlit.app/" target="_blank" rel="noopener">Live-Demo öffnen</a>
-    <a href="https://github.com/Franzer82/insightscan" target="_blank" rel="noopener">Quellcode (GitHub)</a>
-    <a href="https://huggingface.co/Franzer82/insightscan-layoutlm" target="_blank" rel="noopener">Modell (Hugging Face)</a>
-    <a href="docs/InsightScan_Portfolio_Dokumentation.pdf" target="_blank" rel="noopener">Dokumentation (PDF)</a>
-  </div>
+  <div class="pipeline">
+    <div class="item">
+      <div class="stage">CV · RAG · MLOPS</div>
+      <div class="proj-name">InsightScan</div>
+      <p class="proj-desc">
+        Liest Kassenbelege automatisch aus (<b>Computer Vision</b>), prüft
+        sie gegen eine Firmenrichtlinie (<b>RAG-Suche</b> + Sprachmodell)
+        und überwacht die eigene Erkennungsqualität im Betrieb. Vollständig
+        kostenlos gehostet und öffentlich nutzbar.
+      </p>
+      <div class="links">
+        <a href="https://franzer82-insightscan.streamlit.app/" target="_blank" rel="noopener">demo</a>
+        <a href="https://github.com/Franzer82/insightscan" target="_blank" rel="noopener">code</a>
+        <a href="https://huggingface.co/Franzer82/insightscan-layoutlm" target="_blank" rel="noopener">modell</a>
+        <a href="docs/InsightScan_Portfolio_Dokumentation.pdf" target="_blank" rel="noopener">dokumentation</a>
+      </div>
+    </div>
 
-  <hr class="divider">
+    <div class="item">
+      <div class="stage">CV · EXPLAINABILITY</div>
+      <div class="proj-name">DocuVerify</div>
+      <p class="proj-desc">
+        Erkennt Fälschungen bei Ausweisdokumenten (<b>ResNet50</b>) mit
+        <b>Grad-CAM</b>-Erklärbarkeit. Deckt durch systematische Auswertung
+        mit unbekannten Dokumenttypen eine reale Generalisierungsgrenze
+        ("Shortcut Learning") auf und macht diese transparent in der
+        Anwendung sichtbar, statt sie zu verschleiern.
+      </p>
+      <div class="links">
+        <a href="https://franzer82-docuverify.streamlit.app/" target="_blank" rel="noopener">demo</a>
+        <a href="https://github.com/Franzer82/docuverify" target="_blank" rel="noopener">code</a>
+        <a href="https://huggingface.co/Franzer82/docuverify-resnet50" target="_blank" rel="noopener">modell</a>
+      </div>
+    </div>
 
-  <p class="project-name">DocuVerify</p>
-  <p class="project-desc">
-    Erkennt Fälschungen bei Ausweisdokumenten
-    (<strong>Computer Vision, ResNet50</strong>) mit Grad-CAM-Erklärbarkeit.
-    Deckt durch systematische Auswertung mit unbekannten Dokumenttypen eine
-    reale Generalisierungsgrenze ("Shortcut Learning") auf und macht diese
-    transparent in der Anwendung sichtbar, statt sie zu verschleiern.
-  </p>
-  <div class="link-row">
-    <a href="https://franzer82-docuverify.streamlit.app/" target="_blank" rel="noopener">Live-Demo öffnen</a>
-    <a href="https://github.com/Franzer82/docuverify" target="_blank" rel="noopener">Quellcode (GitHub)</a>
-    <a href="https://huggingface.co/Franzer82/docuverify-resnet50" target="_blank" rel="noopener">Modell (Hugging Face)</a>
-  </div>
-
-  <hr class="divider">
-
-  <p class="project-name">PrivacyShield</p>
-  <p class="project-desc">
-    Anonymisiert Gesichter und Kfz-Kennzeichen in Bildern automatisch
-    (<strong>YOLOv8-Objekterkennung</strong>). Legt den Schwerpunkt auf
-    produktionsreifes MLOps-Engineering: FastAPI-Bereitstellung,
-    Docker-Containerisierung, MLflow-Experiment-Tracking sowie eine
-    automatisierte CI/CD- und Retraining-Pipeline mit GitHub Actions.
-  </p>
-  <div class="link-row">
-    <a href="https://privacyshield-0h0m.onrender.com/docs" target="_blank" rel="noopener">Live-Demo öffnen</a>
-    <a href="https://github.com/Franzer82/privacyshield" target="_blank" rel="noopener">Quellcode (GitHub)</a>
-    <a href="https://huggingface.co/Franzer82/privacyshield-models" target="_blank" rel="noopener">Modelle (Hugging Face)</a>
+    <div class="item">
+      <div class="stage">FASTAPI · DOCKER · CI/CD</div>
+      <div class="proj-name">PrivacyShield</div>
+      <p class="proj-desc">
+        Anonymisiert Gesichter und Kfz-Kennzeichen in Bildern automatisch
+        (<b>YOLOv8</b>-Objekterkennung). Legt den Schwerpunkt auf
+        produktionsreifes <b>MLOps-Engineering</b>: FastAPI-Bereitstellung,
+        Docker-Containerisierung, MLflow-Experiment-Tracking sowie eine
+        automatisierte CI/CD- und Retraining-Pipeline mit GitHub Actions.
+      </p>
+      <div class="links">
+        <a href="https://privacyshield-0h0m.onrender.com/docs" target="_blank" rel="noopener">demo</a>
+        <a href="https://github.com/Franzer82/privacyshield" target="_blank" rel="noopener">code</a>
+        <a href="https://huggingface.co/Franzer82/privacyshield-models" target="_blank" rel="noopener">modelle</a>
+      </div>
+    </div>
   </div>
 
   <hr class="divider">
 
   <p class="section-label">EINGESETZTE FÄHIGKEITEN</p>
-  <div class="skills-list">
-    <div class="skill-row"><span>Computer Vision — LayoutLM, ResNet50 &amp; YOLOv8</span><span class="dots"></span><span>91% F1 / Grad-CAM</span></div>
-    <div class="skill-row"><span>Retrieval-Augmented Generation</span><span class="dots"></span><span>sentence-transformers</span></div>
-    <div class="skill-row"><span>MLOps — Monitoring &amp; Drift-Erkennung</span><span class="dots"></span><span>eigenes Dashboard</span></div>
-    <div class="skill-row"><span>Hybrid-Architektur (Regeln + LLM)</span><span class="dots"></span><span>Python, Gemini</span></div>
-    <div class="skill-row"><span>Kritische Modellauswertung</span><span class="dots"></span><span>Cross-Domain-Splits</span></div>
-    <div class="skill-row"><span>MLOps-Engineering</span><span class="dots"></span><span>FastAPI, Docker, MLflow, CI/CD</span></div>
-    <div class="skill-row"><span>Deployment &amp; Cloud-Hosting</span><span class="dots"></span><span>Streamlit, Render, HF Hub</span></div>
+  <div class="skills">
+    <div class="skill-row"><span class="label">Computer Vision — LayoutLM, ResNet50 &amp; YOLOv8</span><span class="value">91% F1 / Grad-CAM</span></div>
+    <div class="skill-row"><span class="label">Retrieval-Augmented Generation</span><span class="value">sentence-transformers</span></div>
+    <div class="skill-row"><span class="label">MLOps — Monitoring &amp; Drift-Erkennung</span><span class="value">eigenes Dashboard</span></div>
+    <div class="skill-row"><span class="label">Hybrid-Architektur (Regeln + LLM)</span><span class="value">Python, Gemini</span></div>
+    <div class="skill-row"><span class="label">Kritische Modellauswertung</span><span class="value">Cross-Domain-Splits</span></div>
+    <div class="skill-row"><span class="label">MLOps-Engineering</span><span class="value">FastAPI, Docker, MLflow, CI/CD</span></div>
+    <div class="skill-row"><span class="label">Deployment &amp; Cloud-Hosting</span><span class="value">Streamlit, Render, HF Hub</span></div>
   </div>
 
   <hr class="divider">
-
-  <div class="total-row">
-    <span>Danke fürs Vorbeischauen</span>
-    <span>✓</span>
-  </div>
 
   <p class="contact">
     <a href="mailto:Franziska.Sophie.Albrecht@proton.me">Franziska.Sophie.Albrecht@proton.me</a>
@@ -320,7 +281,7 @@
     <a href="https://github.com/Franzer82" target="_blank" rel="noopener">github.com/Franzer82</a>
   </p>
 
-  <p class="footer-note">BELEG Nr. 003 — GÜLTIG AB SOFORT</p>
+  <p class="footer-note">status: alle systeme online</p>
 </main>
 
 </body>
